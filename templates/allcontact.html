@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="{{url_for('static',filename='vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+</head>
+<body>
+    
+    
+
+  
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">phone number</th>
+            <th scope="col">message</th>
+            <th scope="col">Email Address</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for r in record %}
+          <tr>
+            
+            <td>{{r.name}}</td>
+            <td>{{r.phone_num}}</td>
+            <td>{{r.msg}}</td>
+            <td>{{r.email}}</td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+</body>
+</html>

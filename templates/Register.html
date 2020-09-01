@@ -1,0 +1,127 @@
+<!-- Main Content -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registation</title>
+  <link href="{{url_for('static',filename='vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="card" style="width:50rem;height: auto;margin-left: 10rem; margin-top: 2rem;height: 30rem;">
+        <div class="card-body">
+         {{Error|safe}}
+          <form name="form1" onSubmit="return validateform(); "style="margin-top: 20px;width: 30rem;height: auto;"  action="/Register" method="POST"
+          >
+            <h3 class="aa">Create Your own acount</h3>
+            <br>
+            <div class="row">
+              <div class="col-md-6">
+
+                <input type="text" class="form-control" id="firstName" name="fname" placeholder="firstName" value="" required="">
+              </div>
+              <div class="col-md-6">
+                <input type="text" class="form-control" id="lastname" name="lname" placeholder="LastName" value="" required="">
+              </div>
+            </div>
+            </br>
+            <div class="row">
+              <div class="col-md-6">
+                <input type="Date" class="form-control" id="dateofbirth" name="dob" placeholder="Date Of Birth" value=""
+                  required="">
+              </div>
+              <div class="col-md-6">
+                <input type="email" class="form-control" id="gmail" name="email" placeholder="Email" value="" required="">
+              </div>
+
+            </div>
+            <br>
+            <div class="row">
+              <div class="col-md-6">
+                <input class="form-control" id="password1" style="width: 14rem;" name="password" placeholder="password" type=password
+                  required name=up>
+              </div>
+
+              <div class="col-md-6">
+                <input class="form-control" id="password2" style="width: 14rem;" name="password2" placeholder="Confarm password"
+                  type=password name=up2>
+              </div>
+
+            </div>
+            <br>
+            <div class="row">
+              <h8>Use 8 or more characters with a mix of letters, numbers & symbols</h8>
+
+            </div>
+            <br>
+            <div class="row">
+              <div class="col-md-12">
+                <button type="submit" class="btn btn-primary" id="sendMessageButton">Sign up</button>
+
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+<script>
+  function validateform(){  
+var name=document.form1.fname.value;  
+var password=document.form1.password.value;
+var firstpassword=document.form1.password.value;  
+var secondpassword=document.form1.password2.value; 
+var latters= /[A-Z]/; // Patern match = true not match = false
+
+
+console.time("test")
+for(var i=0;i<name.length;i++)
+  {
+    if(i==0 && name[0]!=name[0].toUpperCase())
+      {
+        alert("Enter first letter upper case");                
+        return false;
+      }
+     if(i != 0 && name[i]!=name[i].toLowerCase())
+      {
+        alert("enter second to last letter lower case");
+        return false;
+      }
+  }
+  console.timeEnd("test")
+
+
+
+
+
+  
+if (name==null || name==""){  
+  alert("Name can't be blank");  
+  return false;  
+}else if(password.length<6){  
+  alert("Password must be at least 6 characters long.");  
+  return false;  
+  }
+if(firstpassword!=secondpassword)  
+{
+alert("password must be same!");  
+return false;  
+}    
+
+return true;
+}  
+
+</script>
+
+</html>
+
+
+<!--  -->
