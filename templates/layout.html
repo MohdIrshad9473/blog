@@ -20,6 +20,9 @@
 
   <!-- Custom styles for this template -->
   <link href="{{url_for('static',filename='css/clean-blog.min.css')}}" rel="stylesheet">
+  
+
+
 
 </head>
 
@@ -53,13 +56,28 @@
           <li class="nav-item">
             <a class="nav-link" href="/Register">Register  </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/Logout">Logout Here </a>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Dropdown
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="/ResetPassword">Reset Password</a>
+              <a class="dropdown-item" href="/editprofile">Edit Profile</a>
+              <a class="dropdown-item" href="/Logout">Logout</a>
+              <div class="dropdown-divider"></div>
+            
+            </div>
           </li>
+            
+         
+          
+         
+        
         </ul>
       </div>
     </div>
   </nav>
+ 
   {% block body %} {% endblock %}
   
   <hr>
