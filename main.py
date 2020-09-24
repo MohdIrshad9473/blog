@@ -15,10 +15,10 @@ import os
 
 
 database_uri = 'postgresql+psycopg2://{dbuser}:{dbpass}@{dbhost}/{dbname}'.format(
-    dbuser=os.environ["Dbuser"],      #"postgres",
-    dbpass=os.environ["Dbpass"],      #"irshad9473",
+    dbuser=os.environ["Dbuser"],     
+    dbpass=os.environ["Dbpass"],      
     dbhost="127.0.0.1",
-    dbname=os.environ["Dbname"]       #"irshad"
+    dbname=os.environ["Dbname"]      
 
 )
 
@@ -32,41 +32,24 @@ app.config.update(
 app.config['MAIL_SERVER'] = os.environ["MAIL_SERVER"]
 app.config['MAIL_PORT'] = 587
 app.config['MAIL_USE_TLS'] = True
-app.config['MAIL_USERNAME'] = os.environ["MAIL_USERNAME"]                      #'irshad9473@gmail.com'  # enter your email here
-# enter your email here
-app.config['MAIL_DEFAULT_SENDER'] = os.environ["MAIL_DEFAULT_SENDER"         #'irshad9473@gmail.com'
-app.config['MAIL_PASSWORD'] =  os.environ["MAIL_PASSWORD"]                 #'7668459042'  # enter your password here
+app.config['MAIL_USERNAME'] = os.environ["MAIL_USERNAME"]                     
+# enter your email her
+app.config['MAIL_DEFAULT_SENDER'] = os.environ["MAIL_DEFAULT_SENDER"]        
+app.config['MAIL_PASSWORD'] =  os.environ["MAIL_PASSWORD"]                
 mail = Mail(app)
 # initialize the database connection
 db = SQLAlchemy(app)
+from model.Contacts import Contacts
+from model.Posts import Posts
+from model.Registation import Registation
 
 
-class Contacts(db.Model):
-
-    sno = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(80),      nullable=False)
-    phone_num = db.Column(db.String(100),  nullable=False)
-    msg = db.Column(db.String(120), nullable=False)
-    date = db.Column(db.String(100),  nullable=True)
-    email = db.Column(db.String(100), nullable=False)
 
 
-class Posts(db.Model):
-# sno,tittle,content,date
-    sno = db.Column(db.Integer, primary_key=True)
-    tittle = db.Column(db.String(100),      nullable=False)
-    Description = db.Column(db.String(500),  nullable=False)
-    date = db.Column(db.String(100),  nullable=True)
 
 
-class Registation(db.Model):
-    sno = db.Column(db.Integer, primary_key=True)
-    First_Name = db.Column(db.String(80), nullable=False)
-    Last_Name = db.Column(db.String(80), nullable=False)
-    Dob = db.Column(db.DateTime, nullable=False)
-    Email = db.Column(db.String(100), nullable=False, unique=True)
-    Password = db.Column(db.String(300), nullable=False)
-    otp = db.Column(db.Integer, nullable=False)
+
+
 
 
 # initialize database migration management
@@ -417,5 +400,5 @@ def send_mail(subject,recipients,mailbody):
   
 
  
-if __name__ =="__main__":
-    app.run(host="localhost", port=8000, debug=True)
+#if __name__ =="__main__":
+#    app.run(host="localhost", port=8000, debug=True)
