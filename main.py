@@ -1,3 +1,5 @@
+import random
+import os
 from flask import Flask, render_template, redirect, url_for, session
 from datetime import datetime
 from flask import request
@@ -9,8 +11,7 @@ from form import forgetpasswordform, RPassword, EditProfile,epassword
 from flask_mail import Mail, Message
 from passlib.hash import pbkdf2_sha256
 from werkzeug.security import generate_password_hash, check_password_hash
-import random
-import os
+
 
 
 

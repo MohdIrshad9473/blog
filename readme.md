@@ -1,11 +1,3 @@
- ## Set enviournmnet varible 
-```
-set FLASK_APP=main.py
-```
-### run
-```
-flask run
-```
  ## Database Connection
  ```
   dbuser=Dbuser    
@@ -17,8 +9,17 @@ flask run
  ## Instrucation
  ```
  set MAIL_SERVER=smtp.googlemail.com
- set EMAIL=****
- set PASSWORD=****
- set 
+ set MAIL_USERNAME=****
+ set MAIL_DEFAULT_SENDER=****
+ set MAIL_PASSWORD=***
  
  ```
+ ## Set enviournmnet varible 
+```
+set FLASK_APP=main.py
+```
+### run
+```
+flask run
+```
+ 
